@@ -6,10 +6,10 @@ import ChatScreen from './screens/ChatScreen';
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
-  min-height: 100vh;
-  margin: 0 auto;
+  max-width: 800px;
   justify-content: center;
+  margin: auto;
+  height: 100vh;
 `;
 
 const App: React.FC = () => {
