@@ -38,7 +38,12 @@ const ChatMessageContainer = styled.div`
     props.align === 'right' ? 'row-reverse' : 'row'};
 `;
 
-const ChatMessageItem = ({ message, isUser, ...rest }: { message: IMessage; isUser: boolean }) => {
+interface ChatMessageItemProps {
+  message: IMessage;
+  isUser: boolean;
+}
+
+const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, isUser, ...rest }) => {
   const { sender } = message;
   const MessageTextComponent = isUser ? UserMessageText : MessageText;
 

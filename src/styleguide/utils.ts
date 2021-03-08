@@ -1,3 +1,3 @@
 import { Theme } from './index.d';
 
-export const normalSpacing = ({ theme }: { theme: Theme }) => theme.space.M;
+export const normalSpacing = ({ theme }: { theme: Theme }): string => theme.space.M;
