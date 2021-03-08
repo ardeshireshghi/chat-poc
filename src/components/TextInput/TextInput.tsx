@@ -7,6 +7,11 @@ export const TextInput = styled.input`
   background-color: ${(props) => props.theme.colors.lighterGray};
   padding: ${normalSpacing};
   flex: 1;
-  font-size: ${(props) => props.theme.fontSizes.default};
+
+  font-size: clamp(
+    ${(props) => props.theme.fontSizes.small},
+    calc(0.5rem + 1vw),
+    ${(props) => props.theme.fontSizes.default}
+  );
   outline-color: lightblue;
 `;

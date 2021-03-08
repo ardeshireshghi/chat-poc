@@ -8,7 +8,11 @@ export const Button = styled.button`
   padding: 1rem 2rem;
   flex: 0 1 auto;
   font-weight: 500;
-  font-size: ${(props) => props.theme.fontSizes.default};
+  font-size: clamp(
+    ${(props) => props.theme.fontSizes.small},
+    calc(0.5rem + 1vw),
+    ${(props) => props.theme.fontSizes.default}
+  );
   box-shadow: rgba(0, 0, 0, 0.25) 0 2px 4px 0;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
   outline: none;
