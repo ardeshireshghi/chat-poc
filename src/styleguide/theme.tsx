@@ -1,11 +1,19 @@
 import CSS from 'csstype';
 import { Theme } from './index.d';
 
-enum breakpoints {
+export enum breakpoints {
   MOBILE = '324px',
   MOBILE_LARGE = '424px',
   TABLET = '767px',
   DESKTOP = '1023px'
+}
+
+export enum colors {
+  BLUE = '#016aff',
+  DARK_ORANGE = '#ff5004',
+  DARK_GRAY = 'rgb(44, 44, 44)',
+  WHITE = '#fefefe',
+  LIGHT_GRAY = '#efefef'
 }
 
 type DefaultTheme =
@@ -24,11 +32,22 @@ export const defaultTheme: DefaultTheme = {
     XL: '3rem'
   },
   colors: {
-    primary: 'green',
-    secondary: 'blue',
-    heading: 'rgb(44, 44, 44)',
-    background: 'white',
-    text: '#333'
+    primary: colors.BLUE,
+    secondary: colors.DARK_ORANGE,
+    heading: colors.DARK_GRAY,
+    background: colors.WHITE,
+    text: colors.DARK_GRAY,
+    lightGray: colors.LIGHT_GRAY,
+    chatMessage: {
+      user: {
+        text: '#3375d4',
+        bg: '#f1f7ff'
+      },
+      default: {
+        text: '#615e61',
+        bg: '#f8f8f7'
+      }
+    }
   },
   // Major third
   fontSizes: {
@@ -38,12 +57,6 @@ export const defaultTheme: DefaultTheme = {
     large: '1.563rem',
     xlarge: '1.953rem'
   },
-  breakpoints: [
-    breakpoints.MOBILE,
-    breakpoints.MOBILE_LARGE,
-    breakpoints.TABLET,
-    breakpoints.DESKTOP
-  ],
   chatScreen: {
     borderRadius: '10px'
   }

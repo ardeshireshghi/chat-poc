@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ChatThread } from '../../components/Chat/ChatThread';
 import { ChatDataProvider } from '../../context/chatContext';
 import { normalSpacing } from '../../styleguide/utils';
+import { breakpoints } from '../../styleguide/theme';
 
 const ChatTitle = styled.div`
   flex: 0 0 auto;
@@ -27,7 +28,7 @@ const ChatScreenContainer = styled.div`
   flex: 1 1 auto;
   height: 100%;
 
-  @media all and (min-width: 480px) {
+  @media (min-width: ${breakpoints.MOBILE_LARGE}) {
     flex: 0 1 auto;
   }
 `;

@@ -9,7 +9,12 @@ export interface Theme {
     L: string;
     XL: string;
   };
-  breakpoints: string[];
-  colors: { [name: string]: CSS.Property.Color };
+  colors: {
+    [name: string]:
+      | CSS.Property.Color
+      | {
+          [key: string]: any;
+        };
+  };
   fontSizes: { [name: string]: CSS.Property.FontSize };
 }
