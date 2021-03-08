@@ -13,7 +13,8 @@ export enum colors {
   DARK_ORANGE = '#ff5004',
   DARK_GRAY = 'rgb(44, 44, 44)',
   WHITE = '#fefefe',
-  LIGHT_GRAY = '#efefef'
+  LIGHT_GRAY = '#efefef',
+  LIGHTER_GRAY = '#f5f5f5'
 }
 
 type DefaultTheme =
@@ -38,6 +39,7 @@ export const defaultTheme: DefaultTheme = {
     background: colors.WHITE,
     text: colors.DARK_GRAY,
     lightGray: colors.LIGHT_GRAY,
+    lighterGray: colors.LIGHTER_GRAY,
     chatMessage: {
       user: {
         text: '#3375d4',

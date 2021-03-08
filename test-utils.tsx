@@ -6,6 +6,13 @@ import { defaultTheme } from './src/styleguide/theme';
 import { ChatDataProvider } from './src/context/chatContext';
 import { IMessage } from './src/domain/models/message';
 
+const renderWithThemeProvider = (ui: React.ReactElement, options = {}) => {
+  const Wrapper: React.FC = ({ children }) => {
+    return <ThemeProvider theme={defaultTheme}>{children}</ThemeProvider>;
+  };
+  return render(ui, { wrapper: Wrapper, ...options });
+};
+
 const renderWithAllProviders = (
   ui: React.ReactElement,
   { chatInitialMessages = [], ...options }: { chatInitialMessages?: IMessage[] } = {}
@@ -24,4 +31,4 @@ const renderWithAllProviders = (
 export * from '@testing-library/react';
 
 // override render method
-export { renderWithAllProviders };
+export { renderWithAllProviders, renderWithThemeProvider };

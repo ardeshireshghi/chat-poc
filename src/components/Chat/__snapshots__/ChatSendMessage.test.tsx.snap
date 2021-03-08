@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatSendMessage renders correctly 1`] = `
+<div>
+  <form
+    class="sc-dlfnbm ibzwYW"
+  >
+    <input
+      class="sc-bdfBwQ gNgBfK"
+      placeholder="Send a message..."
+      type="text"
+      value=""
+    />
+    <button
+      class="sc-gsTCUz sc-hKgILt jYBBSf"
+    >
+      Send
+    </button>
+  </form>
+</div>
+`;

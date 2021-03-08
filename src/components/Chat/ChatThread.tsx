@@ -4,9 +4,10 @@ import { useChatMessages } from '../../context/chatContext';
 import ChatMessageList from './ChatMessageList';
 import ChatMessageItem from './ChatMessageItem';
 import useAuth from '../../hooks/auth';
+import { ChatSendMessage } from './ChatSendMessage';
 
 export const ChatThread: React.FC = () => {
-  const { messages } = useChatMessages();
+  const { messages, saveNewMessage } = useChatMessages();
   const chatMessageListRef = useRef<HTMLDivElement>(null);
   const { currentUser } = useAuth();
   const user = currentUser();
@@ -30,6 +31,7 @@ export const ChatThread: React.FC = () => {
           />
         ))}
       </ChatMessageList>
+      <ChatSendMessage onMessageSent={saveNewMessage} />
     </>
   );
 };
