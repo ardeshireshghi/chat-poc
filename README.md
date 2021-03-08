@@ -1,12 +1,33 @@
-# Getting Started with Create React App
+## Chat POC: About the project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository holds a POC of a simple chat screen.
 
-## Available Scripts
+## Contents
+
+- [Chat POC: About the project](#chat-poc--about-the-project)
+  - [Built with](#built-with)
+- [Getting Started](#getting-started)
+  - [Available Scripts](#available-scripts)
+    - [`yarn start`](#-yarn-start-)
+    - [`yarn test`](#-yarn-test-)
+    - [`yarn build`](#-yarn-build-)
+  - [📁 Architecture](#---architecture)
+
+### Built with
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Other tools and libraries:
+
+1. [Typescript](https://www.typescriptlang.org/) as the static type checker
+
+2. [Styled components](https://styled-components.com/) which is a CSS in JS library
+
+## Getting Started
+
+### Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+#### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,12 +35,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+#### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+#### `yarn build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,42 +50,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### 📁 Architecture
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The design of this POC loosely follows [onion architecture](https://www.codeguru.com/csharp/csharp/cs_misc/designtechniques/understanding-onion-architecture.html). I was looking at this recently and thought I can use this project to try it. Given the scope of the POC, I acknowledge that it is a bit of an overkill or rather over-engineering for what it's worth. I like to hear your feedback on this.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Following that architecture, the code consist of:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `domain`: Which are the basic domain models as well as service and repository interfaces
+- `services`: In the context of this codebase services are mainly used to interact with external systems (e.g. use repository to connect to a data source)
+- `infrastructure` which implements interfaces which are responsible for data access such as repositories
+- The rest of the code base are specific to the user interface and are related to React which is responsible for rendering the UI:
+  - screens
+  - components and theming
+  - hooks and context
