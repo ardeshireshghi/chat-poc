@@ -1,3 +1,4 @@
+import CSS from 'csstype';
 import { Theme } from './index.d';
 
 enum breakpoints {
@@ -7,25 +8,43 @@ enum breakpoints {
   DESKTOP = '1023px'
 }
 
-export const defaultTheme: Theme = {
+type DefaultTheme =
+  | Theme
+  | {
+      [componentName: string]: CSS.Properties;
+    };
+
+export const defaultTheme: DefaultTheme = {
   space: {
-    NONE: 0,
-    XS: 4,
-    S: 8,
-    M: 16,
-    L: 24,
-    XL: 48
+    NONE: '0',
+    XS: '0.25rem',
+    S: '0.5rem',
+    M: '1rem',
+    L: '1.5rem',
+    XL: '3rem'
   },
   colors: {
     primary: 'green',
     secondary: 'blue',
-    heading: 'white',
+    heading: 'rgb(44, 44, 44)',
+    background: 'white',
     text: '#333'
+  },
+  // Major third
+  fontSizes: {
+    small: '0.8rem',
+    default: '1rem',
+    medium: '1.25rem',
+    large: '1.563rem',
+    xlarge: '1.953rem'
   },
   breakpoints: [
     breakpoints.MOBILE,
     breakpoints.MOBILE_LARGE,
     breakpoints.TABLET,
     breakpoints.DESKTOP
-  ]
+  ],
+  chatScreen: {
+    borderRadius: '10px'
+  }
 };

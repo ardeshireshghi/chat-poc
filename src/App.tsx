@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { defaultTheme } from './styleguide/theme';
-import { ChatScreen } from './screens/ChatScreen';
+import ChatScreen from './screens/ChatScreen';
 
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  max-width: 1200px;
   min-height: 100vh;
   margin: 0 auto;
   justify-content: center;
