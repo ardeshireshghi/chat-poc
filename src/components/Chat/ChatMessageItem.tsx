@@ -5,10 +5,16 @@ import { Theme } from '../../styleguide/index.d';
 import { breakpoints } from '../../styleguide/theme';
 import { normalSpacing } from '../../styleguide/utils';
 import Avatar from './Avatar';
-
+import FlyInAnimation from '../FlyInAnimation';
 interface ChatMessageContainerProps {
   align: 'left' | 'right';
   theme: Theme;
+}
+
+interface ChatMessageItemProps {
+  message: IMessage;
+  isUser: boolean;
+  animation: boolean;
 }
 
 const MessageText = styled.div`
@@ -38,20 +44,25 @@ const ChatMessageContainer = styled.div`
     props.align === 'right' ? 'row-reverse' : 'row'};
 `;
 
-interface ChatMessageItemProps {
-  message: IMessage;
-  isUser: boolean;
-}
-
-const ChatMessageItem: React.FC<ChatMessageItemProps> = ({ message, isUser, ...rest }) => {
+const ChatMessageItem: React.FC<ChatMessageItemProps> = ({
+  animation,
+  message,
+  isUser,
+  ...rest
+}) => {
   const { sender } = message;
   const MessageTextComponent = isUser ? UserMessageText : MessageText;
 
   return (
-    <ChatMessageContainer align={isUser ? 'right' : 'left'} {...rest}>
-      <Avatar bgColor={isUser ? 'primary' : 'secondary'} name={sender.name} />
-      <MessageTextComponent>{message.text}</MessageTextComponent>
-    </ChatMessageContainer>
+    <FlyInAnimation
+      duration={animation ? '0.45s' : '0s'}
+      enterDirection={isUser ? 'right' : 'left'}
+    >
+      <ChatMessageContainer align={isUser ? 'right' : 'left'} {...rest}>
+        <Avatar bgColor={isUser ? 'primary' : 'secondary'} name={sender.name} />
+        <MessageTextComponent>{message.text}</MessageTextComponent>
+      </ChatMessageContainer>
+    </FlyInAnimation>
   );
 };
 export default ChatMessageItem;

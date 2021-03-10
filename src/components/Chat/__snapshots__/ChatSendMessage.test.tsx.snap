@@ -6,13 +6,13 @@ exports[`ChatSendMessage renders correctly 1`] = `
     class="sc-dlfnbm ibzwYW"
   >
     <input
-      class="sc-bdfBwQ gNgBfK"
+      class="sc-bdfBwQ bTUsFP"
       placeholder="Send a message..."
       type="text"
       value=""
     />
     <button
-      class="sc-gsTCUz sc-hKgILt jYBBSf"
+      class="sc-gsTCUz sc-hKgILt kkzXpY"
     >
       Send
     </button>
