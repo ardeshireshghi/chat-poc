@@ -19,16 +19,13 @@ interface ChatSendMessageProps {
 export const ChatSendMessage: React.FC<ChatSendMessageProps> = ({ onMessageSent }) => {
   const [message, setMessage] = useState('');
 
-  const handleSubmit = useCallback(
-    (event) => {
-      event.preventDefault();
-      if (message) {
-        onMessageSent(message);
-        setMessage('');
-      }
-    },
-    [message, onMessageSent]
-  );
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (message) {
+      onMessageSent(message);
+      setMessage('');
+    }
+  };
 
   return (
     <ChatSendMessageForm onSubmit={handleSubmit}>
