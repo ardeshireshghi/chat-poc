@@ -2,17 +2,13 @@
 
 This repository holds a POC of a simple chat screen.
 
-## Contents
-
 - [Chat POC: About the project](#chat-poc--about-the-project)
-  - [Built with](#built-with)
+  * [Built with](#built-with)
 - [Getting Started](#getting-started)
-  - [Available Scripts](#available-scripts)
-    - [`yarn start`](#-yarn-start-)
-    - [`yarn test`](#-yarn-test-)
-    - [`yarn build`](#-yarn-build-)
-  - [📁 Architecture](#---architecture)
-
+  * [Available Scripts](#available-scripts)
+  * [📁 Architecture](#architecture)
+   
+  
 ### Built with
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Other tools and libraries:
@@ -50,7 +46,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 📁 Architecture
+### Architecture
 
 The design of this POC loosely follows [onion architecture](https://www.codeguru.com/csharp/csharp/cs_misc/designtechniques/understanding-onion-architecture.html). I was looking at this recently and thought I can use this project to try it. Given the scope of the POC, I acknowledge that it is a bit of an overkill or rather over-engineering for what it's worth. I like to hear your feedback on this.
 
